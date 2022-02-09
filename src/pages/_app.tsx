@@ -1,17 +1,16 @@
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import Theme from "../styles/theme";
-import GNB from "../common/global/GNB";
-import store from "../redux/store";
-import "material-icons/iconfont/material-icons.css";
+import type { AppProps } from 'next/app';
+import Theme from '../styles/theme';
+import GNB from '../common/global/GNB';
+import 'material-icons/iconfont/material-icons.css';
+import { wrapper } from '../redux/store';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <Provider store={store}>
-      <Theme>
-        <GNB />
-        <Component {...pageProps} />
-      </Theme>
-    </Provider>
-  );
-}
+const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
+	return (
+		<Theme>
+			<GNB />
+			<Component {...pageProps} />
+		</Theme>
+	);
+};
+
+export default wrapper.withRedux(App);
