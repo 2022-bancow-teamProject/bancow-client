@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 const Section = styled.div`
 	background-color: ${(props) => props.theme.alt.backgroud7};
 	width: 1332px;
-	height: 900px;
 	margin: 0 auto 40px;
 	display: flex;
 	justify-content: right;
@@ -30,13 +30,13 @@ const Section = styled.div`
 `;
 const RequestForm = styled.form`
 	width: 740px;
-	height: 900px;
+
 	padding: 70px 125px;
 	background: #fff;
 	border: 1px solid ${(props) => props.theme.colors.gray2};
 	@media ${(props) => props.theme.breakpoints.md} {
 		width: 500px;
-		padding: 60px 65px;
+		padding: 65px 65px;
 		border: none;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
@@ -50,6 +50,9 @@ const Label = styled.label`
 	font-size: 18px;
 	span {
 		color: red;
+		&:nth-child(2) {
+			font-size: 14px;
+		}
 	}
 	@media ${(props) => props.theme.breakpoints.md} {
 	}
@@ -66,6 +69,9 @@ const Input = styled.input`
 	margin: 20px 0;
 	border: none;
 	border-bottom: 1px solid ${(props) => props.theme.colors.dark};
+	&.input-calendar {
+		color: ${(props) => props.theme.colors.gray1};
+	}
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 16px;
 	}
@@ -94,43 +100,65 @@ const BtnRequest = styled.button`
 	}
 `;
 
+type Inputs = {
+	name: string;
+	mobilePhone: number;
+	email: string;
+	farmName: string;
+	farmLocation: string;
+	cattlePopulation: number;
+	forage: string;
+	possibleDate: number;
+};
 const Section3 = () => {
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors }
+	} = useForm<Inputs>();
+	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 	return (
 		<Section>
-			<RequestForm>
+			<RequestForm onSubmit={handleSubmit(onSubmit)}>
 				<Label>
-					이름 <span>*</span>
-					<Input type="string" id="name" placeholder="홍길동" required></Input>
+					이름<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
 				</Label>
-				<Label>
-					휴대전화번호 <span>*</span>
-					<Input type="string" id="name" placeholder="0100000000"></Input>
-				</Label>
-				<Label>
-					이메일 <span>*</span>
-					<Input type="string" id="name" placeholder="abcd@bancow.com"></Input>
-				</Label>
-				<Label>
-					농가이름 <span>*</span>
-					<Input type="string" id="name" placeholder="00농장"></Input>
-				</Label>
-				<Label>
-					농가주소 <span>*</span>
-					<Input type="string" id="name" placeholder="주소"></Input>
-				</Label>
-				<Label>
-					사육두수 <span>*</span>
-					<Input type="string" id="name" placeholder="000두"></Input>
-				</Label>
-				<Label>
-					사용사료 <span>*</span>
-					<Input type="string" id="name" placeholder="사료명"></Input>
-				</Label>
+				<Input placeholder="홍길동" {...register('name', { required: true })} />
 
 				<Label>
-					실사 가능 일자 <span>*</span>
-					<Input type="string" id="name" placeholder="날짜 선택"></Input>
+					휴대전화번호<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
 				</Label>
+				<Input placeholder="01000000000" {...register('mobilePhone', { required: true })} />
+				<Label>
+					이메일<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
+				</Label>
+				<Input placeholder="abcd@bancow.com" {...register('email', { required: true })} />
+				<Label>
+					농가이름<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
+				</Label>
+				<Input placeholder="00농장" {...register('farmName', { required: true })} />
+				<Label>
+					농가주소<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
+				</Label>
+				<Input placeholder="주소" {...register('farmLocation', { required: true })} />
+				<Label>
+					사육두수<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
+				</Label>
+				<Input placeholder="000두" {...register('cattlePopulation', { required: true })} />
+				<Label>
+					사용사료<span>* </span>
+					{errors.name && <span>&nbsp;필수입력 사항입니다.</span>}
+				</Label>
+				<Input placeholder="사료명" {...register('forage', { required: true })} />
+				<Label>실사 가능 일자</Label>
+				<Input className="input-calendar" type="date" {...register('possibleDate', { required: true })} />
 				<BtnRequest type="submit">입점 문의하기</BtnRequest>
 			</RequestForm>
 		</Section>
