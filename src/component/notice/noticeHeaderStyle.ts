@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { HeadLine4, HeadLine5 } from '../../common/typography';
 
-const Section = styled.div`
+export const Section = styled.div`
 	background-color: ${(props) => props.theme.alt.backgroud7};
 	height: 249px;
 	display: flex;
@@ -18,7 +17,7 @@ const Section = styled.div`
 	}
 `;
 
-const HeadLine4Style = styled(HeadLine4)`
+export const HeadLine4Style = styled(HeadLine4)`
 	margin-bottom: 16px;
 	@media ${(props) => props.theme.breakpoints.sm} {
 		font-size: 22px;
@@ -26,7 +25,7 @@ const HeadLine4Style = styled(HeadLine4)`
 	}
 `;
 
-const HeadLine5Style = styled(HeadLine5)`
+export const HeadLine5Style = styled(HeadLine5)`
 	color: ${(props) => props.theme.alt.text2};
 	@media ${(props) => props.theme.breakpoints.sm} {
 		font-size: 16px;
@@ -34,14 +33,3 @@ const HeadLine5Style = styled(HeadLine5)`
 		text-align: center;
 	}
 `;
-
-const Section1 = () => {
-	return (
-		<Section>
-			<HeadLine4Style>공지사항</HeadLine4Style>
-			<HeadLine5Style>뱅카우의 새로운 공지 정보를 한눈에 알아가요.</HeadLine5Style>
-		</Section>
-	);
-};
-
-export default Section1;
