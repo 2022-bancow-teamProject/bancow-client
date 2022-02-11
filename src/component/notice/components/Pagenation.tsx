@@ -1,16 +1,6 @@
-import styled from 'styled-components';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronLeft } from 'react-icons/fi';
-
-const PagenationBox = styled.div`
-	margin-top: 50px;
-	font-size: 23px;
-	display: flex;
-	@media ${(props) => props.theme.breakpoints.md} {
-	}
-	@media ${(props) => props.theme.breakpoints.sm} {
-	}
-`;
+import styled from 'styled-components';
 
 const Pagenation = () => {
 	return (
@@ -21,5 +11,15 @@ const Pagenation = () => {
 		</PagenationBox>
 	);
 };
+
+const PagenationBox = styled.div`
+	margin-top: 50px;
+	font-size: 23px;
+	display: flex;
+	@media ${(props) => props.theme.breakpoints.md} {
+	}
+	@media ${(props) => props.theme.breakpoints.sm} {
+	}
+`;
 
 export default Pagenation;
