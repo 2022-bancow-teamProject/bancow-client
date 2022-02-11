@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import { DownloadAppIconBox } from './layouts';
 
 function GoogleApp() {
 	return (
@@ -8,7 +7,7 @@ function GoogleApp() {
 			target="_blank"
 			rel="noreferrer"
 		>
-			<Box>
+			<DownloadAppIconBox>
 				<svg
 					preserveAspectRatio="xMidYMid meet"
 					data-bbox="0.5 -115.6 443 177.1"
@@ -290,19 +289,9 @@ function GoogleApp() {
 						<path d="M414.9-98.2c0 3.3 1.5 5.7 4 7.1l-1.2 1.5c-1.5-.9-3.4-2.7-3.9-4.4-.4 1.8-2.3 3.9-3.9 4.8l-1.3-1.5c2.7-1.6 4.1-4.2 4.1-7.5v-2.5h2.1v2.5zm7.6 12.5h-2v-9h-3.3v-1.7h3.3v-5.6h2v16.3z"></path>
 					</g>
 				</svg>
-			</Box>
+			</DownloadAppIconBox>
 		</a>
 	);
 }
-
-const Box = styled.div`
-	width: 200px;
-	@media ${(props) => props.theme.breakpoints.md} {
-		width: 130px;
-	}
-	@media ${(props) => props.theme.breakpoints.sm} {
-		width: 100px;
-	}
-`;
 
 export default GoogleApp;

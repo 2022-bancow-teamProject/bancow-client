@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-	height: calc(100vh - 68px);
-	background-color: ${(props) => props.theme.alt.backgroud1};
-	@media ${(props) => props.theme.breakpoints.md} {
-		height: calc(100vh - 50px);
-	}
-`;
-
 export const HeadLine2 = styled.h2`
 	font-weight: 700;
 	font-size: 58px;
@@ -52,17 +44,22 @@ export const HeadLine5 = styled.h5`
 
 export const HeadLine6 = styled.h6`
 	font-size: 20px;
-	a.active & {
-		color: ${(props) => props.theme.colors.point};
-	}
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 16px;
-		color: ${(props) => props.theme.colors.white};
-		a.active & {
-			color: ${(props) => props.theme.colors.gray4};
-		}
+	}
+`;
+
+export const InfoBox = styled.div`
+	margin-top: 44px;
+	font-size: 19px;
+	line-height: 1.5;
+	color: ${(props) => props.theme.colors.subGray};
+	@media screen and (max-width: 870px) {
+		font-size: 16px;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 14px;
+		width: 220px;
 	}
 `;
 

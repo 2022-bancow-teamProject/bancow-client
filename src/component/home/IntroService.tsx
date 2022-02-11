@@ -1,5 +1,5 @@
 import React from 'react';
-import AppLinkBox from '../../common/AppLinkBox';
+import AppLinkBox from '../../common/global/AppLinkBox';
 import { Container, MainText, SubText, Section, TextBox, Img1, Img2, Img3 } from './IntroServiceStyle';
 
 const IntroService = () => {

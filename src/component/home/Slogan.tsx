@@ -3,7 +3,7 @@ import ReviewsSlider from './components/ReviewsSlider';
 import DetailLink from './components/DetailLink';
 import { MainImgBox, Section, MainText, MainTextSmall, Container, Box } from './SloganStyle';
 import { Emphasis } from '../../common/typography';
-import AppLinkBox from '../../common/AppLinkBox';
+import AppLinkBox from '../../common/global/AppLinkBox';
 
 const Slogan = () => {
 	return (
