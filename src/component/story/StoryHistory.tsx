@@ -1,6 +1,41 @@
 import styled from 'styled-components';
-import { BlueFont } from './Section3';
+import { BlueFont } from './StoryVideo';
 import { HeadLine3 } from '../../common/typography';
+
+const StoryHistory = () => {
+	return (
+		<SectionBox>
+			<div className="history-header">
+				<HeadLine3Style>
+					<BlueFontStyle>History</BlueFontStyle>
+					한우를 활용한 가치투자<span>뱅카우가 그 역사를 만들어갑니다</span>
+				</HeadLine3Style>
+			</div>
+			<HistoryTableBox>
+				<VerticalBar></VerticalBar>
+				<HistoryUl className="scroll-spy">
+					<li>
+						<strong>2020년 10월</strong> 스탁키퍼 설립
+					</li>
+					<li>
+						<strong>2020년 10월</strong> 스탁키퍼 2020 핀테크 공모전 대상
+					</li>
+					<li>
+						<strong>2020년 10월</strong> 스탁키퍼 울랄라울랄라
+					</li>
+					<li>
+						<strong>2020년 10월</strong> 가죽 플랫폼 어쩌구 저쩌구
+					</li>
+					<li>
+						<strong>2020년 10월</strong> 정주영 보육기업 선정
+					</li>
+				</HistoryUl>
+			</HistoryTableBox>
+		</SectionBox>
+	);
+};
+
+export default StoryHistory;
 
 export const SectionBox = styled.div`
 	position: relative;
@@ -231,38 +266,3 @@ const HistoryUl = styled.ul`
 		}
 	}
 `;
-
-const Section7 = () => {
-	return (
-		<SectionBox>
-			<div className="history-header">
-				<HeadLine3Style>
-					<BlueFontStyle>History</BlueFontStyle>
-					한우를 활용한 가치투자<span>뱅카우가 그 역사를 만들어갑니다</span>
-				</HeadLine3Style>
-			</div>
-			<HistoryTableBox>
-				<VerticalBar></VerticalBar>
-				<HistoryUl className="scroll-spy">
-					<li>
-						<strong>2020년 10월</strong> 스탁키퍼 설립
-					</li>
-					<li>
-						<strong>2020년 10월</strong> 스탁키퍼 2020 핀테크 공모전 대상
-					</li>
-					<li>
-						<strong>2020년 10월</strong> 스탁키퍼 울랄라울랄라
-					</li>
-					<li>
-						<strong>2020년 10월</strong> 가죽 플랫폼 어쩌구 저쩌구
-					</li>
-					<li>
-						<strong>2020년 10월</strong> 정주영 보육기업 선정
-					</li>
-				</HistoryUl>
-			</HistoryTableBox>
-		</SectionBox>
-	);
-};
-
-export default Section7;
