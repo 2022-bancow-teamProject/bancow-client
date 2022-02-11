@@ -25,10 +25,10 @@ export const HeadLine3 = styled.h3`
 export const HeadLine4 = styled.h4`
 	font-size: 33px;
 	color: ${(props) => props.theme.alt.text1};
-
 	@media ${(props) => props.theme.breakpoints.md} {
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 22px;
 	}
 `;
 
