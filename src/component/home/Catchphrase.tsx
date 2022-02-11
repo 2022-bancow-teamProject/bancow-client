@@ -13,9 +13,9 @@ import {
 	SubTitle,
 	SubTitle2,
 	MainTitle
-} from './Section1Style';
+} from './CatchphraseStyle';
 
-const Section1 = () => {
+function Catchphrase() {
 	const ref1 = useRef<HTMLDivElement>(null);
 	const ref2 = useRef<HTMLDivElement>(null);
 	const ref3 = useRef<HTMLDivElement>(null);
@@ -27,7 +27,6 @@ const Section1 = () => {
 		observer.observe(ref2.current as HTMLDivElement);
 		observer.observe(ref3.current as HTMLDivElement);
 		observer.observe(ref4.current as HTMLDivElement);
-
 		return () => observer.disconnect();
 	}, []);
 	return (
@@ -97,6 +96,6 @@ const Section1 = () => {
 			</Container80>
 		</Section>
 	);
-};
+}
 
-export default Section1;
+export default Catchphrase;

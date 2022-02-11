@@ -1,15 +1,15 @@
 import type { NextPage } from 'next';
 import Footer from '../common/global/Footer';
 import SubFooter from '../common/global/SubFooter';
-import Section0 from '../component/home/Section0';
-import Section1 from '../component/home/Section1';
-import Section2 from '../component/home/Section2';
-import Section3 from '../component/home/Section3';
-import Section4 from '../component/home/Section4';
-import Section5 from '../component/home/Section5';
-import Section6 from '../component/home/Section6';
-import Section7 from '../component/home/Section7';
-import Section8 from '../component/home/Section8';
+import Section0 from '../component/home/Slogan';
+import Section1 from '../component/home/Catchphrase';
+import Section2 from '../component/home/IntroService';
+import Section3 from '../component/home/ExplainBuy';
+import Section4 from '../component/home/ExplainGrow';
+import Section5 from '../component/home/ExplainMarket';
+import Section6 from '../component/home/ExplainSell';
+import Section7 from '../component/home/CowChart';
+import SemiFaq from '../component/home/SemiFaq';
 
 const Home: NextPage = () => {
 	return (
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 			<Section5 />
 			<Section6 />
 			<Section7 />
-			<Section8 />
+			<SemiFaq />
 			<SubFooter />
 			<Footer />
 		</>
