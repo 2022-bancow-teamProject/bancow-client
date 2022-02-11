@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
 	}
 `;
 
+export const PureInnerBox = styled.div`
+	width: 80%;
+	margin: 0 auto;
+`;
+
 export const InnerBox = styled.div`
 	width: 80%;
 	display: flex;
@@ -31,6 +36,19 @@ export const RowSpaceBetween = styled.div`
 	align-items: center;
 `;
 
+export const CenteredRowBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const CenteredColBox = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+
 export const DownloadAppIconBox = styled.div`
 	width: 200px;
 	@media ${(props) => props.theme.breakpoints.md} {
@@ -39,4 +57,16 @@ export const DownloadAppIconBox = styled.div`
 	@media ${(props) => props.theme.breakpoints.sm} {
 		width: 100px;
 	}
+`;
+
+export const Radius30WhiteBox = styled.div`
+	border-radius: 30px;
+	background-color: ${(props) => props.theme.colors.white};
+	box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
+`;
+
+export const BackgroundImg = styled.div<{ url: string }>`
+	background-image: url(${({ url }) => url});
+	background-repeat: no-repeat;
+	background-size: cover;
 `;

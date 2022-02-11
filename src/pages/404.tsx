@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import styled from 'styled-components';
+import { BackgroundImg, Wrapper } from '../common/layouts';
 import { HeadLine2, HeadLine5, EmphasisSub } from '../common/typography';
+import styled from 'styled-components';
 
 const NotFound = () => {
 	return (
 		<Box>
 			<InfoText>
-				404 Error <ImgAlert />
+				404 Error <ImgAlert url="/404page/page404-2.png" />
 			</InfoText>
 			<Desc>
 				요청하신 페이지를 찾을 수 없습니다.
@@ -20,15 +21,12 @@ const NotFound = () => {
 					</a>
 				</Link>
 			</Desc>
-			<Img />
+			<Img url="/404page/page404-1.png" />
 		</Box>
 	);
 };
 
-const Box = styled.div`
-	height: calc(100vh - 68px);
-	background-color: ${(props) => props.theme.alt.backgroud1};
-
+const Box = styled(Wrapper)`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -53,23 +51,17 @@ const Desc = styled(HeadLine5)`
 	}
 `;
 
-const Img = styled.div`
+const Img = styled(BackgroundImg)`
 	width: 206px;
 	height: 212px;
 	margin-top: 68px;
-	background-image: url('/404page/page404-1.png');
-	background-repeat: no-repeat;
-	background-size: cover;
 `;
 
-const ImgAlert = styled.div`
+const ImgAlert = styled(BackgroundImg)`
 	width: 54px;
 	height: 54px;
 	margin-top: 7px;
 	margin-left: 16px;
-	background-image: url('/404page/page404-2.png');
-	background-repeat: no-repeat;
-	background-size: cover;
 `;
 
 export default NotFound;

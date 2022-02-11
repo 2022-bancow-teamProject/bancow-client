@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import styled from 'styled-components';
 import ModeToggle from './ModeToggle';
 import NavLinks from './NavLinks';
+import styled from 'styled-components';
 
 interface NavMenuAreaProps {
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
