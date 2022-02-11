@@ -1,11 +1,11 @@
 import React from 'react';
 import ReviewsSlider from './components/ReviewsSlider';
 import DetailLink from './components/DetailLink';
-import { MainImgBox, Section, MainText, MainTextSmall, Container, Box } from './Section0Style';
+import { MainImgBox, Section, MainText, MainTextSmall, Container, Box } from './SloganStyle';
 import { Emphasis } from '../../common/typography';
-import AppLinkBox from '../../common/AppLinkBox';
+import AppLinkBox from '../../common/global/AppLinkBox';
 
-const Section0 = () => {
+const Slogan = () => {
 	return (
 		<Section>
 			<MainImgBox />
@@ -29,4 +29,4 @@ const Section0 = () => {
 	);
 };
 
-export default Section0;
+export default Slogan;
