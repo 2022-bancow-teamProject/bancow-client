@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FiChevronRight } from 'react-icons/fi';
 import { FiChevronLeft } from 'react-icons/fi';
+
 const PagenationBox = styled.div`
 	margin-top: 50px;
 	font-size: 23px;
