@@ -31,8 +31,8 @@ const Box = styled(RowSpaceBetween)`
 		padding: 34px 0;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
-		padding: 34px 0 38px;
 		height: 580px;
+		padding: 34px 0 38px;
 	}
 `;
 
