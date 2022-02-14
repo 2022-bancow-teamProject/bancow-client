@@ -1,7 +1,44 @@
-import React from "react";
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HeadLine4 } from "../../common/typography";
 import styled from "styled-components";
+
+const Search = () => {
+  // const [data, setData] = useState({ hits: [] });
+  // const [query, setQuery] = useState("react");
+
+  // useEffect(() => {
+  //   const completed = false;
+
+  //   async function get() {
+  //       const result = await axios(`https://hn.algolia.com/api/v1/search?query=${query}`)
+  //       if(!completed) {
+  //           setData(result.data);
+  //       }
+  //   }
+  // }, [query]);
+  return (
+    <SearchArea>
+      <Section>
+        <HeadLine4Style>궁금한 점이 있으신가요?</HeadLine4Style>
+        <SearchForm>
+          <SearchWrapper>
+            <AiOutlineSearchStyle />
+            <label htmlFor="keyword"></label>
+            <SearchBar
+              type="text"
+              id="keyword"
+              placeholder="검색어를 입력하시고 엔터를 눌러주세요."
+            />
+          </SearchWrapper>
+        </SearchForm>
+      </Section>
+    </SearchArea>
+  );
+};
+
+export default Search;
 
 export const SearchArea = styled.div`
   background-color: ${(props) => props.theme.colors.subGray};
@@ -128,27 +165,3 @@ export const SearchBar = styled.input`
     }
   }
 `;
-
-// TODO: Form에 검색 api 연결
-const Search = () => {
-  return (
-    <SearchArea>
-      <Section>
-        <HeadLine4Style>궁금한 점이 있으신가요?</HeadLine4Style>
-        <SearchForm>
-          <SearchWrapper>
-            <AiOutlineSearchStyle />
-            <label htmlFor="keyword"></label>
-            <SearchBar
-              type="text"
-              id="keyword"
-              placeholder="검색어를 입력하시고 엔터를 눌러주세요."
-            />
-          </SearchWrapper>
-        </SearchForm>
-      </Section>
-    </SearchArea>
-  );
-};
-
-export default Search;

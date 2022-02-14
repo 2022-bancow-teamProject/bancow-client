@@ -91,7 +91,6 @@ export const FormContent = styled.textarea`
   background-color: #c4c4c41a;
   overflow: scroll;
   box-sizing: border-box;
-
   ::placeholder {
     text-align: left;
   }
