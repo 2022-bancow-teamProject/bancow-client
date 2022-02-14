@@ -21,7 +21,6 @@ export interface review {
 }
 
 const Home = ({ reviews }: { reviews: Array<review> }) => {
-	console.log(reviews);
 	return (
 		<>
 			<Slogan reviews={reviews} />
