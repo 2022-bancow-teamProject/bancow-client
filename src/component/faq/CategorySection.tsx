@@ -100,9 +100,10 @@ export const RiArrowDropDownLineStyle = styled(RiArrowDropDownLine)`
   width: 24px;
   height: 24px;
 `;
+
 // TODO: 백오피스에서 faq crud 관리(api 호출)
 
-const Question = () => {
+const Category = () => {
   // 카테고리 버튼 데이터를 임의로 넣어서 렌더링
   const CATEGORYDATA = [
     "전체",
@@ -118,6 +119,7 @@ const Question = () => {
   const optionClick = () => {
     // category에 맞는 질문 렌더링, style 적용
   };
+  
   return (
     <>
       <Wrapper>
@@ -142,9 +144,7 @@ const Question = () => {
             <OptionUl show={showCategory}>
               {CATEGORYDATA.map((cate, i) => (
                 <OptionLi
-                  className={`${i === 0 ? "active" : ""} ${
-                    selectCategory === cate ? "active" : ""
-                  }`}
+                  className={`${selectCategory === cate ? "active" : ""}`}
                   key={i}
                   onClick={() => {
                     setSelectCategory(cate);
@@ -162,4 +162,5 @@ const Question = () => {
   );
 };
 
-export default Question;
+export default Category;
+

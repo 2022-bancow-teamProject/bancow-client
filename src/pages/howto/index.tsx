@@ -1,14 +1,13 @@
-import React from "react";
-import Footer from "../../common/global/Footer";
-import Section from "../../component/howto/Section1";
+import Footer from '../../common/global/Footer';
+import HowToUse from '../../component/howto/HowToUse';
 
 const Howto = () => {
-  return (
-    <>
-      <Section />
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<HowToUse />
+			<Footer />
+		</>
+	);
 };
 
 export default Howto;
