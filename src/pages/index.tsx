@@ -20,7 +20,7 @@ export interface review {
 	farm_image: string;
 }
 
-const Home = ({ reviews }: { reviews: Array<review> }) => {
+const Home = ({ reviews, chart }: { reviews: Array<review>; chart: any }) => {
 	return (
 		<>
 			<Slogan reviews={reviews} />
@@ -30,7 +30,7 @@ const Home = ({ reviews }: { reviews: Array<review> }) => {
 			<ExplainGrow />
 			<ExplainMarket />
 			<ExplainSell />
-			<CowChart />
+			<CowChart chart={chart} />
 			<SemiFaq />
 			<SubFooter />
 			<Footer />
@@ -44,7 +44,12 @@ export async function getServerSideProps() {
 	const res = await fetch(`${baseApi}buyer/distribute`);
 	const { data: reviews } = await res.json();
 
-	return { props: { reviews } };
+	const response = await fetch(`${baseApi}chart/koreancow/AUCTION_PRICE`);
+	const {
+		data: { info }
+	} = await response.json();
+
+	return { props: { reviews, chart: info } };
 }
 
 export default Home;
