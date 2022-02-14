@@ -4,8 +4,9 @@ import MainLeftImg from './components/MainLeftImg';
 import SloganText from './components/SloganText';
 import ReviewsSlider from './components/ReviewsSlider';
 import styled from 'styled-components';
+import { review } from '../../pages';
 
-const Slogan = () => {
+const Slogan = ({ reviews }: { reviews: Array<review> }) => {
 	return (
 		<Section>
 			<MainLeftImg />
@@ -16,7 +17,7 @@ const Slogan = () => {
 					<DetailLink />
 				</Box>
 			</Container>
-			<ReviewsSlider />
+			<ReviewsSlider reviews={reviews} />
 		</Section>
 	);
 };
