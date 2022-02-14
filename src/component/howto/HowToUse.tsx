@@ -4,8 +4,9 @@ import { HeadLine2 } from '../../common/typography';
 import { BackgroundImg } from '../../common/layouts';
 import StepContentList from './components/StepContentList';
 import styled from 'styled-components';
+import { video } from '../../pages/howto';
 
-const HowToUse = () => {
+const HowToUse = ({ data }: { data: Array<video> }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [step, setStep] = useState(0);
 
@@ -18,7 +19,7 @@ const HowToUse = () => {
 			<Title>뱅카우 하는 법 알아볼까요?</Title>
 			<Img1 url="/howtopage/howto1.png" />
 			<StepContentList trigger={trigger} />
-			{isOpen && <GuideModal setIsOpen={setIsOpen} step={step} />}
+			{isOpen && <GuideModal setIsOpen={setIsOpen} step={step} data={data} />}
 		</Section>
 	);
 };
