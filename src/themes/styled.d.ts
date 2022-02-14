@@ -27,8 +27,12 @@ declare module "styled-components" {
       backgroud4: string;
       backgroud5: string;
       backgroud6: string;
+      backgroud7: string;
       text1: string;
       text2: string;
+      text3: string;
+      text4: string;
+      text5: string;
     };
   }
 }

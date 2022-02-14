@@ -1,17 +1,30 @@
-import { NextPage } from "next";
-import React from "react";
-import Section1 from "../../component/story/Section1";
-import Section2 from "../../component/story/Section2";
-import Section3 from "../../component/story/Section3";
+import { NextPage } from 'next';
+import React from 'react';
+import styled from 'styled-components';
+import Footer from '../../common/global/Footer';
+import StoryFarmReview from '../../component/story/StoryFarmReview';
+import StoryHeader from '../../component/story/StoryHeader';
+import StoryProcessCards from '../../component/story/StoryProcessCards';
+import StoryVideo from '../../component/story/StoryVideo';
+import StoryWhoWeAre from '../../component/story/StoryWhoWeAre';
+import StoryHistory from '../../component/story/StoryHistory';
 
+export const StoryContainer = styled.div`
+	width: 100%;
+	background: ${(props) => props.theme.alt.backgroud1};
+`;
 const Story: NextPage = () => {
-  return (
-    <>
-      <Section1></Section1>
-      <Section2></Section2>
-      <Section3></Section3>
-    </>
-  );
+	return (
+		<StoryContainer>
+			<StoryHeader></StoryHeader>
+			<StoryProcessCards></StoryProcessCards>
+			<StoryVideo></StoryVideo>
+			<StoryFarmReview></StoryFarmReview>
+			<StoryWhoWeAre></StoryWhoWeAre>
+			<StoryHistory></StoryHistory>
+			<Footer></Footer>
+		</StoryContainer>
+	);
 };
 
 export default Story;

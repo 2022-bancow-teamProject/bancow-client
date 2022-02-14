@@ -1,28 +1,55 @@
-import type { NextPage } from "next";
-import Footer from "../common/global/Footer";
-import Section1 from "../component/home/Section1";
-import Section2 from "../component/home/Section2";
-import Section3 from "../component/home/Section3";
-import Section4 from "../component/home/Section4";
-import Section5 from "../component/home/Section5";
-import Section6 from "../component/home/Section6";
-import Section7 from "../component/home/Section7";
-import Section8 from "../component/home/Section8";
+import Footer from '../common/global/Footer';
+import SubFooter from '../common/global/SubFooter';
+import Slogan from '../component/home/Slogan';
+import Catchphrase from '../component/home/Catchphrase';
+import IntroService from '../component/home/IntroService';
+import ExplainBuy from '../component/home/ExplainBuy';
+import ExplainGrow from '../component/home/ExplainGrow';
+import ExplainMarket from '../component/home/ExplainMarket';
+import ExplainSell from '../component/home/ExplainSell';
+import CowChart from '../component/home/CowChart';
+import SemiFaq from '../component/home/SemiFaq';
 
-const Home: NextPage = () => {
-  return (
-    <>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
-      <Footer />
-    </>
-  );
+export interface review {
+	id: number;
+	content: string;
+	title: string;
+	buyer_name: string;
+	farm_name: string;
+	farm_ceo_name: string;
+	farm_image: string;
+}
+
+const Home = ({ reviews, chart }: { reviews: Array<review>; chart: any }) => {
+	return (
+		<>
+			<Slogan reviews={reviews} />
+			<Catchphrase />
+			<IntroService />
+			<ExplainBuy />
+			<ExplainGrow />
+			<ExplainMarket />
+			<ExplainSell />
+			<CowChart chart={chart} />
+			<SemiFaq />
+			<SubFooter />
+			<Footer />
+		</>
+	);
 };
+
+export async function getServerSideProps() {
+	const baseApi = process.env.NEXT_PUBLIC_BASE_API;
+
+	const res = await fetch(`${baseApi}buyer/distribute`);
+	const { data: reviews } = await res.json();
+
+	const response = await fetch(`${baseApi}chart/koreancow/AUCTION_PRICE`);
+	const {
+		data: { info }
+	} = await response.json();
+
+	return { props: { reviews, chart: info } };
+}
 
 export default Home;

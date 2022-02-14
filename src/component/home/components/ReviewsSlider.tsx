@@ -1,5 +1,37 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import SlideCard from './SlideCard';
+import { Col } from '../../../common/layouts';
+import styled, { keyframes } from 'styled-components';
+import { review } from '../../../pages';
+
+const ReviewsSlider = ({ reviews }: { reviews: Array<review> }) => {
+	const topSlide = reviews.slice(0, 4);
+	const bottomSlide = reviews.slice(4, 8);
+
+	return (
+		<SlideGroup>
+			<Slider>
+				<SlideTrack>
+					{topSlide.map((data) => (
+						<SlideCard key={data.id} {...data} />
+					))}
+					{topSlide.map((data) => (
+						<SlideCard key={data.id + '2'} {...data} />
+					))}
+				</SlideTrack>
+			</Slider>
+			<Slider delay={-200}>
+				<SlideTrack>
+					{bottomSlide.map((data) => (
+						<SlideCard key={data.id} {...data} />
+					))}
+					{bottomSlide.map((data) => (
+						<SlideCard key={data.id + '2'} {...data} />
+					))}
+				</SlideTrack>
+			</Slider>
+		</SlideGroup>
+	);
+};
 
 const animate = keyframes`
   0%{
@@ -19,193 +51,28 @@ const animatesm = keyframes`
   }
 `;
 
-const SlideGroup = styled.div`
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  @media ${(props) => props.theme.breakpoints.sm} {
-    top: 408px;
-  }
+const SlideGroup = styled(Col)`
+	position: absolute;
+	bottom: 0;
+	@media ${(props) => props.theme.breakpoints.sm} {
+		top: 408px;
+	}
 `;
 
-const Slider = styled.div`
-  height: 300px;
-  margin: 0 auto;
-  position: relative;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+const Slider = styled.div<{ delay?: number }>`
+	transform: ${({ delay }) => delay && `translateX(${delay}px);`};
 `;
 
-const SlideTrack = styled.div<{ delay?: number }>`
-  display: flex;
-  width: calc(480px * 8); // 카드 너비 * 카드 수 * 2
-  animation: ${animate} 26s linear infinite;
-  animation-delay: ${(props) => (props.delay ? props.delay + "s" : 0 + "s")};
+const SlideTrack = styled.div`
+	display: flex;
+	width: calc(480px * 8); // 카드 너비 * 카드 수 * 2
+	height: 300px;
+	animation: ${animate} 26s linear infinite;
 
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: calc(346px * 8);
-    animation: ${animatesm} 26s linear infinite;
-    animation-delay: ${(props) =>
-      props.delay ? props.delay * 4 + "s" : 0 + "s"};
-  }
+	@media ${(props) => props.theme.breakpoints.sm} {
+		width: calc(346px * 8);
+		animation: ${animatesm} 26s linear infinite;
+	}
 `;
-
-const ReviewCard = styled.div`
-  width: 480px;
-  height: 254px;
-  margin: 15px;
-  padding: 32px;
-  background: white;
-  box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.2);
-  border-radius: 30px;
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 346px;
-    height: 280px;
-  }
-`;
-
-const CardHeader = styled.div`
-  height: 46px;
-  display: flex;
-  align-items: center;
-`;
-
-const Profile = styled.div`
-  // 백그라운드로 사진
-  border: 1px solid blue;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  margin-right: 12px;
-`;
-const Title = styled.div`
-  font-size: 26px;
-  line-height: 1.5;
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 22px;
-  }
-`;
-const Content = styled.div`
-  width: 96%;
-  margin: 0 auto;
-  padding-top: 16px;
-  font-size: 20px;
-  line-height: 1.4;
-  color: ${(props) => props.theme.colors.gray1};
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    width: 90%;
-    padding-top: 30px;
-    font-size: 18px;
-  }
-`;
-
-const ReviewsSlider = () => {
-  return (
-    <SlideGroup>
-      <Slider>
-        <SlideTrack>
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>{" "}
-          <ReviewCard>
-            <CardHeader>
-              <Profile />
-              <Title>제목입니다제목입니다</Title>
-            </CardHeader>
-            <Content>
-              주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저
-              같은 일반 투자자도 이제 투자가 가능해졌네요.
-            </Content>
-          </ReviewCard>
-        </SlideTrack>
-      </Slider>
-      <Slider>
-        <SlideTrack delay={0.8}>
-          <ReviewCard>A</ReviewCard>
-          <ReviewCard>B</ReviewCard>
-          <ReviewCard>C</ReviewCard>
-          <ReviewCard>D</ReviewCard>
-          <ReviewCard>A</ReviewCard>
-          <ReviewCard>B</ReviewCard>
-          <ReviewCard>C</ReviewCard>
-          <ReviewCard>D</ReviewCard>
-        </SlideTrack>
-      </Slider>
-    </SlideGroup>
-  );
-};
 
 export default ReviewsSlider;

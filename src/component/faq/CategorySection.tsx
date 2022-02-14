@@ -119,7 +119,7 @@ const Category = () => {
   const optionClick = () => {
     // category에 맞는 질문 렌더링, style 적용
   };
-
+  
   return (
     <>
       <Wrapper>
@@ -163,3 +163,4 @@ const Category = () => {
 };
 
 export default Category;
+
