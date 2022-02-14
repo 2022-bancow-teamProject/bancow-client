@@ -1,54 +1,31 @@
 import SlideCard from './SlideCard';
 import { Col } from '../../../common/layouts';
 import styled, { keyframes } from 'styled-components';
+import { review } from '../../../pages';
 
-const mockData = [
-	{
-		url: 'https://via.placeholder.com/45',
-		title: '제목입니다제목입니다',
-		content:
-			' 주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저 같은 일반 투자자도 이제 투자가 가능해졌네요.'
-	},
-	{
-		url: 'https://via.placeholder.com/45',
-		title: '제목입니다제목입니다',
-		content:
-			' 주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저 같은 일반 투자자도 이제 투자가 가능해졌네요.'
-	},
-	{
-		url: 'https://via.placeholder.com/45',
-		title: '제목입니다제목입니다',
-		content:
-			' 주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저 같은 일반 투자자도 이제 투자가 가능해졌네요.'
-	},
-	{
-		url: 'https://via.placeholder.com/45',
-		title: '제목입니다제목입니다',
-		content:
-			' 주변에 한우목장들이 있어 산업이 유망하다고 알고는 있었는데, 저 같은 일반 투자자도 이제 투자가 가능해졌네요.'
-	}
-];
+const ReviewsSlider = ({ reviews }: { reviews: Array<review> }) => {
+	const topSlide = reviews.slice(0, 4);
+	const bottomSlide = reviews.slice(4, 8);
 
-const ReviewsSlider = () => {
 	return (
 		<SlideGroup>
 			<Slider>
 				<SlideTrack>
-					{mockData.map((data, idx) => (
-						<SlideCard key={idx} {...data} />
+					{topSlide.map((data) => (
+						<SlideCard key={data.id} {...data} />
 					))}
-					{mockData.map((data, idx) => (
-						<SlideCard key={idx} {...data} />
+					{topSlide.map((data) => (
+						<SlideCard key={data.id + '2'} {...data} />
 					))}
 				</SlideTrack>
 			</Slider>
 			<Slider delay={-200}>
 				<SlideTrack>
-					{mockData.map((data, idx) => (
-						<SlideCard key={idx} {...data} />
+					{bottomSlide.map((data) => (
+						<SlideCard key={data.id} {...data} />
 					))}
-					{mockData.map((data, idx) => (
-						<SlideCard key={idx} {...data} />
+					{bottomSlide.map((data) => (
+						<SlideCard key={data.id + '2'} {...data} />
 					))}
 				</SlideTrack>
 			</Slider>
