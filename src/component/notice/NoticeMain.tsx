@@ -18,32 +18,33 @@ interface Inotice {
 
 const NoticeMain = () => {
 	const [data, setData] = useState<Inotice[]>([]);
-	const baseApi = process.env.NEXT_PUBLIC_BASE_API;
+	// const baseApi = process.env.NEXT_PUBLIC_BASE_API;
 
-	const getNotice = async (page: number) => {
-		const res = await fetch(`${baseApi}notice/public?page=${page}`);
-		const {
-			data: { content }
-		} = await res.json();
-		return content;
-	};
-	useEffect(() => {
-		(async () => {
-			const content = await getNotice(0);
-			console.log(content);
-			setData(content);
-		})();
-	}, []);
+	// const getNotice = async (page: number) => {
+	// 	const res = await fetch(`${baseApi}notice/public?page=${page}`);
+	// 	const {
+	// 		data: { content }
+	// 	} = await res.json();
+	// 	return content;
+	// };
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const content = await getNotice(0);
+	// 		console.log(content);
+	// 		setData(content);
+	// 	})();
+	// }, []);
 	return (
 		<Section>
-			{data.map((notice) => (
-				<UnderLineBox key={notice.id}>
-					{/* <Link href={`notice/?noticeID=${notice.id}`} as={`/notice/${notice.id}`}> */}
-					<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-					<Datetypo>2022-01-27</Datetypo>
-					{/* </Link> */}
-				</UnderLineBox>
-			))}
+			{data.length &&
+				data?.map((notice) => (
+					<UnderLineBox key={notice.id}>
+						{/* <Link href={`notice/?noticeID=${notice.id}`} as={`/notice/${notice.id}`}> */}
+						<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
+						<Datetypo>2022-01-27</Datetypo>
+						{/* </Link> */}
+					</UnderLineBox>
+				))}
 
 			<Pagenation />
 		</Section>
