@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/dist/client/router';
 import { Emphasis } from '../../../common/typography';
 import { CenteredColBox } from '../../../common/layouts';
 import { Desc, Img, SubText, Title } from './EventCard';

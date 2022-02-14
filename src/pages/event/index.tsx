@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/dist/client/router';
 import { Wrapper } from '../../common/layouts';
 import EventDetail from '../../component/event/components/EventDetail';
 import EventHeader from '../../component/event/EventHeader';

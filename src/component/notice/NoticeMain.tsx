@@ -16,10 +16,9 @@ interface Inotice {
 	username: string;
 }
 
-const baseApi = process.env.NEXT_PUBLIC_BASE_API;
-// 언론ver  => event 처럼 상세페이지로 전환 가능
 const NoticeMain = () => {
 	const [data, setData] = useState<Inotice[]>([]);
+	const baseApi = process.env.NEXT_PUBLIC_BASE_API;
 
 	const getNotice = async (page: number) => {
 		const res = await fetch(`${baseApi}notice/public?page=${page}`);
@@ -39,10 +38,10 @@ const NoticeMain = () => {
 		<Section>
 			{data.map((notice) => (
 				<UnderLineBox key={notice.id}>
-					<Link href={`notice/?noticeID=${notice.id}`} as={`/notice/${notice.id}`}>
-						<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-						<Datetypo>2022-01-27</Datetypo>
-					</Link>
+					{/* <Link href={`notice/?noticeID=${notice.id}`} as={`/notice/${notice.id}`}> */}
+					<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
+					<Datetypo>2022-01-27</Datetypo>
+					{/* </Link> */}
 				</UnderLineBox>
 			))}
 
