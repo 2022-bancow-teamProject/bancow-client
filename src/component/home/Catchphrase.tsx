@@ -11,8 +11,8 @@ function Catchphrase() {
 	const ref3 = useRef<HTMLDivElement>(null);
 	const ref4 = useRef<HTMLDivElement>(null);
 
+	const observer = useObserver();
 	useEffect(() => {
-		const observer = useObserver();
 		observer.observe(ref1.current as HTMLDivElement);
 		observer.observe(ref2.current as HTMLDivElement);
 		observer.observe(ref3.current as HTMLDivElement);
