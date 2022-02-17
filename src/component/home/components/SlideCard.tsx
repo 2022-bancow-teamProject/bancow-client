@@ -2,17 +2,17 @@ import { Radius30WhiteBox } from '../../../common/layouts';
 import styled from 'styled-components';
 
 interface SlideCardProps {
-	url: string;
-	title: string;
+	buyer_name: string;
 	content: string;
+	farm_image: string;
 }
 
-const SlideCard: React.FC<SlideCardProps> = ({ url, title, content }) => {
+const SlideCard: React.FC<SlideCardProps> = ({ buyer_name, content, farm_image }) => {
 	return (
 		<ReviewCard>
 			<Header>
-				<Profile url={url} />
-				<Title>{title}</Title>
+				<Profile src={farm_image} alt="profile" />
+				<Title>구매자 {buyer_name}님</Title>
 			</Header>
 			<Content>{content}</Content>
 		</ReviewCard>
@@ -36,9 +36,8 @@ const Header = styled.div`
 	align-items: center;
 `;
 
-const Profile = styled.div<{ url: string }>`
+const Profile = styled.img`
 	border: 1px solid blue;
-	background-size: cover;
 	width: 42px;
 	height: 42px;
 	border-radius: 50%;
@@ -48,6 +47,7 @@ const Profile = styled.div<{ url: string }>`
 const Title = styled.p`
 	font-size: 26px;
 	line-height: 1.5;
+	margin-left: 10px;
 	@media ${(props) => props.theme.breakpoints.sm} {
 		font-size: 22px;
 	}

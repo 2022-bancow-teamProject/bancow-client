@@ -113,6 +113,38 @@ export const FormContent = styled.textarea`
 			color: transparent;
 		}
 	}
+
+	display: block;
+	width: 888px;
+	height: 288px;
+	border-radius: 4px;
+	border: 1px solid white;
+	padding: 10px 15px;
+	background-color: #c4c4c41a;
+	overflow: scroll;
+	box-sizing: border-box;
+	::placeholder {
+		text-align: left;
+	}
+
+	::-webkit-input-placeholder,
+	:-ms-input-placeholder {
+		text-align: left;
+	}
+
+	&:focus {
+		border: 1px solid #000;
+		box-shadow: 0 0 10px #719ece;
+
+		::placeholder {
+			color: transparent;
+		}
+
+		::-webkit-input-placeholder,
+		:-ms-input-placeholder {
+			color: transparent;
+		}
+	}
 `;
 
 export const InputLabel = styled.label`

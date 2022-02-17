@@ -3,33 +3,49 @@ import Pagenation from './components/Pagenation';
 import { HeadLine5 } from '../../common/typography';
 import { CenteredColBox } from '../../common/layouts';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 
-// 언론ver  => event 처럼 상세페이지로 전환 가능
+interface Inotice {
+	id: number;
+	create_date: string;
+	message: string;
+	notice_category: string;
+	status: boolean;
+	title: string;
+	update_date: string;
+	username: string;
+}
+
 const NoticeMain = () => {
+	const [data, setData] = useState<Inotice[]>([]);
+	// const baseApi = process.env.NEXT_PUBLIC_BASE_API;
+
+	// const getNotice = async (page: number) => {
+	// 	const res = await fetch(`${baseApi}notice/public?page=${page}`);
+	// 	const {
+	// 		data: { content }
+	// 	} = await res.json();
+	// 	return content;
+	// };
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const content = await getNotice(0);
+	// 		console.log(content);
+	// 		setData(content);
+	// 	})();
+	// }, []);
 	return (
 		<Section>
-			<Link href="notice/?noticeID=1234" as="/notice/1234">
-				<UnderLineBox>
-					<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-					<Datetypo>2022-01-27</Datetypo>
-				</UnderLineBox>
-			</Link>
-			<UnderLineBox href="http://www.todaykorea.co.kr/news/articleView.html?idxno=296481" target="_blank">
-				<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-				<Datetypo>2022-01-27</Datetypo>
-			</UnderLineBox>
-			<UnderLineBox href="http://www.todaykorea.co.kr/news/articleView.html?idxno=296481" target="_blank">
-				<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-				<Datetypo>2022-01-27</Datetypo>
-			</UnderLineBox>
-			<UnderLineBox href="http://www.todaykorea.co.kr/news/articleView.html?idxno=296481" target="_blank">
-				<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-				<Datetypo>2022-01-27</Datetypo>
-			</UnderLineBox>
-			<UnderLineBox href="http://www.todaykorea.co.kr/news/articleView.html?idxno=296481" target="_blank">
-				<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
-				<Datetypo>2022-01-27</Datetypo>
-			</UnderLineBox>
+			{data.length &&
+				data?.map((notice) => (
+					<UnderLineBox key={notice.id}>
+						{/* <Link href={`notice/?noticeID=${notice.id}`} as={`/notice/${notice.id}`}> */}
+						<Title>한우자산플랫폼 뱅카우, 6차 펀딩 39분만에 종료</Title>
+						<Datetypo>2022-01-27</Datetypo>
+						{/* </Link> */}
+					</UnderLineBox>
+				))}
+
 			<Pagenation />
 		</Section>
 	);
